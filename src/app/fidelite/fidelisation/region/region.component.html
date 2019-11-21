@@ -1,0 +1,60 @@
+<div class="animated fadeIn">
+
+  <h4 class="title bg-light p-2 m-3">  Gestion des regions </h4>
+
+  <div class="col-12 col-sm-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Table des regions
+        <i class="fa fa-plus float-right bg-blue p-2 " style="color: #fff; cursor: pointer" routerLink="/fidelite/fidelisations/creer-region"></i>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped" >
+
+
+          <thead>
+          <tr>
+            <th>Code ISO</th>
+            <th>nom</th>
+            <th>Date de creation</th>
+            <th>Pays</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let region of listeRegions">
+            <td>{{ region.code }}</td>
+            <td>{{ region.nom }}</td>
+            <td>{{ region.dateCreation }}</td>
+            <td>{{ region.pays.nom }}</td>
+            <td>{{ region.description }}</td>
+            <td>
+              <div>
+                <button (click)="delete(region.code)" class="btn btn-danger btn-sm">
+                  <span >  <i  class="cui-trash icons "></i>  </span>
+                </button>
+                <button  class="btn btn-success btn-sm" (click)=editElement(region)>
+                  <span >  <i  class="cui-pencil icons "></i>  </span>
+                </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <app-pagination [url]="'pregions'" [numeroPage]="0" [sizePage]="3" (arrayDataEvent)="addPageItem($event)"></app-pagination>
+        <!-- <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul> -->
+      </div>
+    </div>
+  </div>
+
+
+</div>

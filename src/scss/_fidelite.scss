@@ -1,0 +1,44 @@
+/**
+* @authaur : Chancelin Wafo 678648089
+* @role : Web Designer and Developer
+* @Date :
+**/
+
+.cui-arrow-left{
+  cursor: pointer;
+}
+
+.content-details{
+  width: 100%;
+  line-height: 30px;
+}
+
+.app-header{
+
+  .navbar-nav{
+    + .navbar-toggler{
+      display: none !important;
+    }
+  }
+}
+
+.pagination{
+  .page-item{
+    .page-link{
+      color: #20a8d8;
+      cursor: pointer;
+    }
+    &.active{
+      .page-link{
+        color: #fff;
+      }
+    }
+    &.desactive{
+      .page-link{
+        color: inherit;
+        cursor: default;
+      }
+    }
+  }
+}
+

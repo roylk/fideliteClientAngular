@@ -1,0 +1,104 @@
+<div class="animated fadeIn">
+
+
+  <h4 class="title bg-light p-2"> Creer un modele de conversion </h4>
+  <section class="bg-light ">
+    <div class="row">
+
+      <div class="col-12 col-md-12">
+
+        <div class="card" *ngIf="errBack">
+          <div class="card-body">
+            <div>
+              <alert [type]="danger" [dismissible]="dismissible">{{ msgError }}</alert>
+            </div>
+          </div>
+        </div>
+
+        <form  [formGroup]="createCustomerForm"  (ngSubmit)="onSubmit()"  class="form-horizontal">
+
+          <div class="card">
+
+            <div class="card-header">
+              <strong>Enregistrement </strong> d'un modèle de conversion de point en gain
+            </div>
+
+            <div class="card-body">
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="type">Modèle de conversion</label>
+                <div class="col-md-9">
+                  <select id="type" formControlName="type" class="form-control"
+                          [ngClass]="{'is-invalid' : submitted && f.type.errors}">
+                    <option value="1">Par point cumulé</option>
+                    <option value="2">Par montant cumulé</option>
+                  </select>
+                  <div *ngIf="submitted && f.type.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.type.errors.required">Merci de selectionner un modèle de conversion </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+
+                <label class="col-md-3 col-form-label" for="text-input">Borne inférieure</label>
+                <div class="col-md-9">
+                  <input type="number" id="text-input" formControlName="nbpointInf"
+                         class="form-control" placeholder="borne inférieure" [ngClass]="{'is-invalid' : submitted && f.nbpointInf.errors}">
+                  <div *ngIf="submitted && f.nbpointInf.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.nbpointInf.errors.required">La borne inférieure obligatoire</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="nbpointSup"> Borne supérieure </label>
+                <div class="col-md-9">
+                  <input type="text" id="nbpointSup" formControlName="nbpointSup" class="form-control"
+                         [ngClass]="{'is-invalid' : submitted && f.nbpointSup.errors}" placeholder="Borne supérieure">
+                  <div *ngIf="submitted && f.nbpointSup.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.nbpointSup.errors.required">La borne supérieure obligatoire </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="text-input2">Reduction (Valeur ou %)</label>
+                <div class="col-md-9">
+                  <input type="text" id="text-input2" formControlName="reduction" class="form-control"
+                         [ngClass]="{'is-invalid' : submitted && f.reduction.errors}" placeholder="valeur de reduction">
+                  <div *ngIf="submitted && f.reduction.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.reduction.errors.required">La valeur de reduction est obligatoire </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="commercant">Commercant</label>
+                <div class="col-md-9">
+                  <select id="commercant" formControlName="commercant" class="form-control"
+                          [ngClass]="{'is-invalid' : submitted && f.commercant.errors}">
+                    <option value="{{commercant.code}}" *ngFor="let commercant of commercants">{{commercant.nom}}</option>
+                  </select>
+                  <div *ngIf="submitted && f.commercant.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.commercant.errors.required">Merci de selectionner le commercant </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="card-footer">
+              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Creer le model </button>
+              <button type="reset" class="btn btn-sm btn-danger" (click)=onReset()><i class="fa fa-ban"></i> Annuler </button>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+</div>

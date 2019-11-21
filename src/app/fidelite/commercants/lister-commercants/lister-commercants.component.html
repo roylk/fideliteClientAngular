@@ -1,0 +1,106 @@
+<div class="animated fadeIn">
+
+  <h4 class="title bg-light p-2 m-3">  Liste des Commercants </h4>
+
+  <div class="col-12 col-sm-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Table commerciants
+      </div>
+      <div class="card-body">
+        <table class="table table-striped" >
+
+
+          <thead>
+          <tr>
+            <th>Code</th>
+            <th>Nom</th>
+            <th>Acronyme</th>
+            <!-- <th>Date de Nais.</th> -->
+            <!-- <th>Adresse</th> -->
+            <th>Phone1</th>
+            <th>Email</th>
+            <th>Pays</th>
+            <th>Ville</th>
+            <th>Statut</th>
+            <th>Actions</th>
+          </tr>
+          </thead> 
+          <tbody>
+          <tr *ngFor="let commercant of arrayData">
+            <td>{{ commercant.code }}</td>
+            <td>{{ commercant.nom }}</td>
+            <td>{{ commercant.acronyme }}</td>
+            <!-- <td>{{ commercant.dateNaissance }}</td> -->
+            <!-- <td>{{ commercant.adresse }}</td> -->
+            <td>{{ commercant.telephone1 }}</td>
+            <td>{{ commercant.email }}</td>
+            <td>{{ commercant.ville.region.pays.nom }}</td>
+            <td>{{ commercant.ville.nom }}</td>
+
+            <td >
+                <span *ngIf="commercant.statut==1" class="badge badge-success">Actif</span>
+                <span *ngIf="commercant.statut==2" class="badge badge-secondary">Inactif</span>
+                <span *ngIf="commercant.statut==3" class="badge badge-danger">Bloqué</span>
+            </td>
+            <td>
+              <div>
+                  <button (click)="delete(commercant.code)" class="btn btn-danger btn-sm">
+                      <span >  <i  class="cui-trash icons "></i>  </span>
+                    </button>
+                    <button  class="btn btn-success btn-sm" (click)=editElement(commercant)>
+                        <span >  <i  class="cui-pencil icons "></i>  </span>
+                    </button>
+                      <button class="btn btn-info btn-sm" (click)=showElement(commercant)>
+                          <span >  <i  class="cui-info icons "></i>  </span>
+                      </button>
+              </div>
+            </td>
+            <!-- <td  >
+              <span class="badge badge-success">Active</span>
+            </td> -->
+          </tr>
+         <!--  <tr>
+           font-2xl
+            <td>Avram Tarasios</td>
+            <td>2012/02/01</td>
+            <td>Staff</td>
+            <td>
+              <span class="badge badge-danger">Banned</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Quintin Ed</td>
+            <td>2012/02/01</td>
+            <td>Admin</td>
+            <td>
+              <span class="badge badge-secondary">Inactive</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Enéas Kwadwo</td>
+            <td>2012/03/01</td>
+            <td>Member</td>
+            <td>
+              <span class="badge badge-warning">Pending</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Agapetus Tadeáš</td>
+            <td>2012/01/21</td>
+            <td>Staff</td>
+            <td>
+              <span class="badge badge-success">Active</span>
+            </td>
+          </tr> -->
+          </tbody>
+        </table>
+      </div>
+
+      <app-pagination [url]="'pcommercants'" [numeroPage]="0" [sizePage]="5" (arrayDataEvent)="addPageItem($event)"></app-pagination>
+
+    </div>
+  </div>
+
+
+</div>

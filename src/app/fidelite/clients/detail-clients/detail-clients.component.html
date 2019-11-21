@@ -1,0 +1,115 @@
+<div class="animated fadeIn">
+ <h4 class="title bg-light p-2"><span (click)=returnBack()><a><i  class="cui-arrow-left icons"></i></a></span>  Details client </h4>
+  
+<section class="bg-light ">
+    <div class="row" *ngIf="client">
+            <div class="content-details">
+
+                    <div class="card">
+
+                      <div class="card-header">
+                        CODE Client
+                        <div class="card-header-actions">
+                          <span class="badge badge-success">{{client.code}}</span>
+                        </div>
+                      </div>
+
+                      <div class="card-body">
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">TITRE :</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span> {{client.titre}} </span>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">NOM ET PRENOM :</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span> {{client.nom}} {{client.prenom}} </span>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">DATE DE NAISSANCE:</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span> {{client.dateNaissance}} </span>
+                          </div>
+                        </div>
+
+                        <!-- <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">DATE DE NAISSANCE:</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span> {{client.dateNaissance}} </span>
+                          </div>
+                        </div> -->
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">TELEPHONES:</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span> {{client.telephone1}} /{{client.telephone2}} </span>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">ADRESSE:</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span> {{client.adresse}}</span>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">EMAIL:</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span> {{client.email}}</span>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">LOCALISATIONS:</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span> {{client.ville.region.pays.nom}} {{client.ville.region.nom}} {{client.ville.nom}} </span>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">STATUT:</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span *ngIf="client.statut==1" class="badge badge-success">Actif</span>
+                            <span *ngIf="client.statut==2" class="badge badge-secondary">Inactif</span>
+                            <span *ngIf="client.statut==3" class="badge badge-danger">Bloqué</span>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+            </div>
+    </div><!--/.col-->
+
+  <div class="" *ngIf="!client">
+    <h4 class="font-weight-bolder  p-3 text-center"> Merci de selectionner un client pour avoir ces details </h4>
+  </div>
+</section>
+
+</div>
+
+

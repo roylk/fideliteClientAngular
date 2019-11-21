@@ -1,0 +1,62 @@
+<div class="animated fadeIn">
+
+  <h4 class="title bg-light p-2">  Liste des conversions </h4>
+
+  <div class="col-12 col-sm-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Conversions
+        <i class="fa fa-plus float-right bg-blue p-2 " style="color: #fff; cursor: pointer" routerLink="/fidelite/commercants/creer-conversion"></i>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Polidtique de reduction </th>
+            <th>Min point</th>
+            <th>Max point</th>
+            <th>Reduction(Valeur ou %)</th>
+            <th>Commercant</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let conversion of conversions">
+            <td>
+              <span *ngIf="conversion.type==1" class="badge badge-success">Par point cumulé</span>
+              <span *ngIf="conversion.type==2" class="badge badge-secondary">Par montant cumulé</span>
+            </td>
+            <td>{{ conversion.nbpointInf }}</td>
+            <td>{{ conversion.nbpointSup }}</td>
+            <td>{{ conversion.reduction }}</td>
+            <td>{{ conversion.commercant.nom }}</td>
+            <td>
+              <div>
+                <button (click)="delete(conversion.code)" class="btn btn-danger btn-sm">
+                  <span >  <i  class="cui-trash icons "></i>  </span>
+                </button>
+                <button  class="btn btn-success btn-sm" (click)=editElement(conversion)>
+                  <span >  <i  class="cui-pencil icons "></i>  </span>
+                </button>
+                <!--<button class="btn btn-info btn-sm" (click)=showElement(terminal)>
+                  <span >  <i  class="cui-info icons "></i>  </span>
+                </button>-->
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,76 @@
+<div class="animated fadeIn">
+
+  <h4 class="title bg-light p-2 m-3">  Gestion des offres </h4>
+
+  <div class="col-12 col-sm-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Table des offres
+        <i class="fa fa-plus float-right bg-blue p-2 " style="color: #fff; cursor: pointer" routerLink="/fidelite/fidelisations/creer-offre"></i>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped" >
+
+
+          <thead>
+          <tr>
+            <th>Code</th>
+            <th>Libele</th>
+            <th>Orientation</th>
+            <th>Date de début</th>
+            <th>Date de fin</th>
+            <th>Categorie de la carte</th>
+            <th>type de l'offre</th>
+            <th>Statut</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let offre of offres">
+            <td>{{ offre.code }}</td>
+            <td>{{ offre.libele }}</td>
+            <td>
+              <span *ngIf="offre.orientation==1" class="badge badge-success">Points</span>
+              <span *ngIf="offre.orientation==2" class="badge badge-secondary">Autres</span>
+            </td>
+
+            <td>{{ offre.dateDebut }}</td>
+            <td>{{ offre.dateFin }}</td>
+            <td>{{ offre.categorieCarte.lebelle }}</td>
+            <td>{{ offre.typeOffre.libelle }}</td>
+            <td>
+              <span *ngIf="offre.statut==1" class="badge badge-success">Actif</span>
+              <span *ngIf="offre.statut==2" class="badge badge-secondary">Inactif</span>
+              <span *ngIf="offre.statut==3" class="badge badge-danger">Bloqué</span>
+            </td>
+
+            <td>
+              <div>
+                <button (click)="delete(offre.code)" class="btn btn-danger btn-sm">
+                  <span >  <i  class="cui-trash icons "></i>  </span>
+                </button>
+                <button  class="btn btn-success btn-sm" (click)=editElement(offre)>
+                  <span >  <i  class="cui-pencil icons "></i>  </span>
+                </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <app-pagination [url]="'poffres'" [numeroPage]="0" [sizePage]="2" (arrayDataEvent)="addPageItem($event)"></app-pagination>
+        <!-- <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul> -->
+      </div>
+    </div>
+  </div>
+
+
+</div>

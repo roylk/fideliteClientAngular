@@ -1,0 +1,93 @@
+<div class="animated fadeIn">
+ <h4 class="title bg-light p-2"><span (click)=returnBack()><a><i  class="cui-arrow-left icons"></i></a></span>  Details commencant </h4>
+  
+<section class="bg-light ">
+      <div class="row" *ngIf="commercant">
+            <div class="content-details">
+                    <div class="card">
+                      <div class="card-header">
+                        CODE commercant
+                        <div class="card-header-actions">
+                          <span class="badge badge-success">{{commercant.code}}</span>
+                        </div>
+                      </div>
+
+                      <div class="card-body">
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">Nom :</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span> {{commercant.nom}} </span>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">Acronyme :</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span> {{commercant.acronyme}} </span>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">TELEPHONES :</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span> {{commercant.telephone1}} /{{commercant.telephone2}} </span>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">Adresse :</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span> {{commercant.adresse}} </span>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">Email :</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span> {{commercant.email}} </span>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">LOCALISATIONS :</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span>  {{commercant.ville.region.pays.nom}} {{commercant.ville.region.nom}} {{commercant.ville.nom}} </span>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-12 col-sm-6">
+                            <span class="font-weight-bolder">Sataus :</span>
+                          </div>
+                          <div class="col-12 col-sm-6">
+                            <span *ngIf="commercant.statut==1" class="badge badge-success">Actif</span>
+                            <span *ngIf="commercant.statut==2" class="badge badge-secondary">Inactif</span>
+                            <span *ngIf="commercant.statut==3" class="badge badge-danger">Bloqué</span>
+                          </div>
+                        </div>
+
+                    </div>
+                  </div><!--/.col-->
+            </div>
+      </div>
+
+      <div class="" *ngIf="!commercant">
+         <h4 class="font-weight-bolder  p-3 text-center"> Merci de selectionner un comercant pour avoir ces details </h4>
+      </div>
+</section>
+</div>
+
+

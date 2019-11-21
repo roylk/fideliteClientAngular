@@ -1,0 +1,76 @@
+<div class="animated fadeIn">
+
+  <h4 class="title bg-light p-2 m-3">  Liste des Catégories </h4>
+
+  <div class="col-12 col-sm-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Table Catégories
+      </div>
+      <div class="card-body">
+        <table class="table table-striped" >
+          <thead>
+          <tr>
+            <th>Code</th>
+            <th>Nom</th>
+            <th>Periodicité</th>
+            <th>Action</th>
+            <th>Politique d'&eacute;valution</th>
+            <th>Commercant</th>
+            <th>Statut</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let categorie of categories">
+            <td>{{ categorie.code }}</td>
+            <td>{{ categorie.lebelle }}</td>
+            <td>{{ categorie.periodicite }}</td>
+            <td>
+              <span *ngIf="categorie.action==1" class="badge badge-success">Manuel</span>
+              <span *ngIf="categorie.action==2" class="badge badge-secondary">Autmatique</span>
+            </td>
+            <td>{{ categorie.politiqueEvaluation.libele }}</td>
+            <td>{{ categorie.commercant.nom }}</td>
+
+            <td >
+              <span *ngIf="categorie.statut==1" class="badge badge-success">Actif</span>
+              <span *ngIf="categorie.statut==2" class="badge badge-secondary">Inactif</span>
+              <span *ngIf="categorie.statut==3" class="badge badge-danger">Bloqué</span>
+            </td>
+            <td>
+              <div>
+                <button (click)="delete(categorie.code)" class="btn btn-danger btn-sm">
+                  <span >  <i  class="cui-trash icons "></i>  </span>
+                </button>
+                <button  class="btn btn-success btn-sm" (click)=editElement(categorie)>
+                  <span >  <i  class="cui-pencil icons "></i>  </span>
+                </button>
+               <!-- <button class="btn btn-info btn-sm" (click)=showElement(categorie)>
+                  <span >  <i  class="cui-info icons "></i>  </span>
+                </button>-->
+              </div>
+            </td>
+            <!-- <td  >
+              <span class="badge badge-success">Active</span>
+            </td> -->
+          </tr>
+          </tbody>
+        </table>
+
+        <app-pagination [url]="'pcategories'" [numeroPage]="0" [sizePage]="5" (arrayDataEvent)="addPageItem($event)"></app-pagination>
+     <!--    <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul> -->
+      </div>
+    </div>
+  </div>
+
+
+</div>

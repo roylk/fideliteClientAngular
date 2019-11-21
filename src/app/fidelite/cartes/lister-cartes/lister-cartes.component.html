@@ -1,0 +1,71 @@
+<div class="animated fadeIn">
+
+  <h4 class="title bg-light p-2 m-3">  Liste des cartes </h4>
+
+  <div class="col-12 col-sm-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Table des cartes
+      </div>
+      <div class="card-body">
+        <table class="table table-striped" >
+          <thead>
+          <tr>
+            <th>Numero</th>
+            <th>Total de point</th>
+            <th>Total de transaction </th>
+            <th>Montant accumul&eacute; </th>
+            <th>Type de carte </th>
+            <th>Fournisseur</th>
+            <th>Client</th>
+            <th>Statut</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let carte of arrayData">
+            <td>{{ carte.numero }}</td>
+            <td>{{ carte.compteurPoint }}</td>
+            <td>{{ carte.nombreTransaction }}</td>
+            <td>{{ carte.montantAcumule }}</td>
+            <td>{{ carte.categorieCarte.lebelle }}</td>
+            <td>{{ carte.categorieCarte.commercant.nom }}</td>
+            <td><span *ngIf="carte.client">{{ carte.client.nom }}</span></td>
+            <td>
+              <span *ngIf="carte.statut==1" class="badge badge-success">Disponible</span>
+              <span *ngIf="carte.statut==2" class="badge badge-secondary">Vendu</span>
+            </td>
+            <td>
+              <div>
+                <button (click)="delete(carte.numero)" class="btn btn-danger btn-sm">
+                  <span >  <i  class="cui-trash icons "></i>  </span>
+                </button>
+                <button  class="btn btn-success btn-sm" (click)=editElement(carte)>
+                  <span >  <i  class="cui-pencil icons "></i>  </span>
+                </button>
+              </div>
+            </td>
+            <!-- <td  >
+              <span class="badge badge-success">Active</span>
+            </td> -->
+          </tr>
+          </tbody>
+        </table>
+        <!-- <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul> -->
+      </div>
+
+       <app-pagination [url]="'pcartes'" [numeroPage]="0" [sizePage]="5" (arrayDataEvent)="addPageItem($event)"></app-pagination>
+
+    </div>
+  </div>
+
+
+</div>

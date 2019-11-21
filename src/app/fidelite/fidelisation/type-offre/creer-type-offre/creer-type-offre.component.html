@@ -1,0 +1,79 @@
+<div class="animated fadeIn">
+
+  <h4 class="title bg-light p-2 m-3">  Creer  un type d'offre </h4>
+  <section class="bg-light ">
+    <div class="row">
+
+      <div class="col-12 col-md-12">
+
+        <div class="card" *ngIf="errBack">
+          <div class="card-body">
+            <div>
+              <alert [type]="danger" [dismissible]="dismissible">{{ msgError }}</alert>
+            </div>
+          </div>
+        </div>
+
+        <form  [formGroup]="createCustomerForm"  (ngSubmit)="onSubmit()"  class="form-horizontal">
+
+          <div class="card">
+
+            <div class="card-header">
+              <strong>Creation </strong> d'un type d'offre
+            </div>
+
+            <div class="card-body">
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="text-input">Code </label>
+                <div class="col-md-9">
+                  <input type="text" id="text-input" formControlName="code"
+                         class="form-control" placeholder="votre code" [ngClass]="{'is-invalid' : submitted && f.code.errors}">
+                  <div *ngIf="submitted && f.code.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.code.errors.required">Le code est obligatoire </span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="text-input2">Le libelé</label>
+                <div class="col-md-9">
+                  <input type="text" id="text-input2" formControlName="libele" class="form-control"
+                         [ngClass]="{'is-invalid' : submitted && f.libele.errors}" placeholder="Nom client">
+                  <div *ngIf="submitted && f.libele.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.libele.errors.required">Le libelle est obligatoire </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="devise">Description</label>
+                <div class="col-md-9">
+                  <textarea class="form-control" id="devise" type="text"
+                         formControlName="description" placeholder="La description"
+                            [ngClass]="{'is-invalid' : submitted && f.description.errors}" rows="8"> </textarea>
+                  <div *ngIf="submitted && f.description.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.description.errors.required">Merci de saisir la description au moins 20 caracteres</span>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="card-footer">
+              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Creer le palier </button>
+              <button type="reset" class="btn btn-sm btn-danger" (click)=onReset()><i class="fa fa-ban"></i> Annuler </button>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+</div>

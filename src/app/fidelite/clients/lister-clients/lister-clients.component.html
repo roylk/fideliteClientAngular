@@ -1,0 +1,68 @@
+<div class="animated fadeIn">
+
+  <h4 class="title bg-light p-2 m-3">  Liste des clients </h4>
+
+  <div class="col-12 col-sm-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Table clients
+      </div>
+      <div class="card-body">
+        <table class="table table-striped" >
+
+          <thead>
+          <tr>
+            <th>Code</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Date de Nais.</th>
+            <!-- <th>Adresse</th> -->
+            <th>Phone1</th>
+            <th>Email</th>
+            <th>Pays</th>
+            <th>Ville</th>
+            <th>Statut</th>
+            <th>Actions</th>
+          </tr>
+          </thead> 
+          <tbody>
+          <tr *ngFor="let client of arrayData">
+            <td>{{ client.code }}</td>
+            <td>{{ client.nom }}</td>
+            <td>{{ client.prenom }}</td>
+            <td>{{ client.dateNaissance }}</td>
+            <td>{{ client.telephone1 }}</td>
+            <td>{{ client.email }}</td>
+            <td>{{ client.ville.region.pays.nom }}</td>
+            <td>{{ client.ville.nom }}</td>
+
+            <td >
+                <span *ngIf="client.statut==1" class="badge badge-success">Actif</span>
+                <span *ngIf="client.statut==2" class="badge badge-secondary">Inactif</span>
+                <span *ngIf="client.statut==3" class="badge badge-danger">Bloqué</span>
+            </td>
+            <td>
+              <div>
+                  <button (click)="delete(client.code)" class="btn btn-danger btn-sm">
+                      <span >  <i  class="cui-trash icons "></i>  </span>
+                    </button>
+                    <button  class="btn btn-success btn-sm" (click)=editElement(client)>
+                        <span >  <i  class="cui-pencil icons "></i>  </span>
+                    </button>
+                      <button class="btn btn-info btn-sm" (click)=showElement(client)>
+                          <span >  <i  class="cui-info icons "></i>  </span>
+                      </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <app-pagination [url]="'pclientsR'" [numeroPage]="0" [sizePage]="2" (arrayDataEvent)="addPageItem($event)"></app-pagination>
+
+    </div>
+  </div>
+
+
+</div>

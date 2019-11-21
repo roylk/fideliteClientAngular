@@ -1,0 +1,192 @@
+<div class="animated fadeIn">
+
+    <h4 class="title bg-light p-2"><span (click)=returnBack()><i  class="cui-arrow-left icons"></i></span>  Modifier le client </h4>
+  
+    <section class="bg-light ">
+      <div class="row">
+  
+        <div class="col-12 col-md-12">
+            <form  [formGroup]="editCustomerForm"  (ngSubmit)="onSubmit(client)"  class="form-horizontal">
+                
+            <div class="card">
+  
+              <div class="card-header">
+                <strong>Modification </strong> d'un client
+              </div>
+  
+                <div class="card-body">
+                    
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="text-input">Code Client</label>
+                        <div class="col-md-9">
+                          <input type="text" id="text-input" formControlName="code" 
+                          class="form-control" placeholder="votre code" [ngClass]="{'is-invalid' : submitted && f.code.errors}" readonly>
+                          <div *ngIf="submitted && f.code.errors">
+                            <span class="help-block" style="color: brown" *ngIf="f.code.errors.required">Le code est obligatoire </span>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="text-input1">Titre</label>
+                        <div class="col-md-9">
+                            <select id="text-input1" formControlName="titre" class="form-control" placeholder="Votre genre">
+                              <option value="M">Monsieur</option>
+                              <option value="Mme">Madame</option>
+                            </select>
+                        </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="text-input2">Nom</label>
+                        <div class="col-md-9">
+                          <input type="text" id="text-input2" formControlName="nom" class="form-control"
+                          [ngClass]="{'is-invalid' : submitted && f.nom.errors}" placeholder="Nom client">
+                          <div *ngIf="submitted && f.nom.errors">
+                            <span class="help-block" style="color: brown" *ngIf="f.nom.errors.required">Le nom doit etre au moins de trois (03) caractères </span>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="text-input3">Prénom</label>
+                        <div class="col-md-9">
+                          <input type="text" id="text-input3" formControlName="prenom" class="form-control" placeholder="Prénom client">                    </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="date-input">Date de naissance</label>
+                        <div class="col-md-9">
+                          <input class="form-control" id="date-input" type="date" 
+                           formControlName="dateNaissance" placeholder="date"
+                           [ngClass]="{'is-invalid' : submitted && f.dateNaissance.errors}">
+                           <div *ngIf="submitted && f.dateNaissance.errors">
+                            <span class="help-block" style="color: brown" *ngIf="f.dateNaissance.errors.required">Merci de saisir une date valide</span>
+                           </div>
+                        </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="text-input4">Adresse</label>
+                        <div class="col-md-9">
+                          <input type="text" id="text-input4" formControlName="adresse"
+                           class="form-control" placeholder="adresse client"
+                           [ngClass]="{'is-invalid' : submitted && f.adresse.errors}">
+                           <div *ngIf="submitted && f.adresse.errors">
+                            <span class="help-block" style="color: brown" *ngIf="f.adresse.errors.required">L'adresse doit avoir au moins 3 et au plus 40 carractères</span>
+                           </div>
+                        </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="text-input5">Téléphone1</label>
+                        <div class="col-md-9">
+                          <input type="tel" id="text-input5" formControlName="telephone1"
+                          [ngClass]="{'is-invalid' : submitted && f.telephone1.errors}" class="form-control" placeholder="téléphone 1">
+                          <div *ngIf="submitted && f.telephone1.errors">
+                            <span class="help-block" style="color: brown" *ngIf="f.telephone1.errors.required">Merci de saisir un num&eacute;ro de t&eacute;tl&eacute;phone valide</span>
+                           </div>
+                        </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="text-input5">Téléphone2</label>
+                        <div class="col-md-9">
+                          <input type="tel" id="text-input5" formControlName="telephone2" class="form-control" placeholder="téléphone 2">
+                        </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="email-input">Email</label>
+                        <div class="col-md-9">
+                          <input type="email" id="email-input" formControlName="email"
+                           class="form-control" placeholder="saisir l'Email" autocomplete="email"
+                           [ngClass]="{'is-invalid' : submitted && f.email.errors}">
+                           <div *ngIf="submitted && f.email.errors">
+                            <span class="help-block" style="color: brown" *ngIf="f.email.errors.required">Merci de saisir l'e-mail valide</span>
+                           </div>
+                        </div>
+                      </div>
+    
+                      <!-- <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="date-input">Date Input</label>
+                        <div class="col-md-9">
+                          <input class="form-control" id="date-input" type="date" name="date-input" placeholder="date">
+                          <span class="help-block">Please enter a valid date</span>
+                        </div>
+                      </div> -->
+    
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="select1">Pays</label>
+                        <div class="col-md-9">
+                          <select id="select1" formControlName="pays" class="form-control" (change)="getRegion($event)"
+                          [ngClass]="{'is-invalid' : submitted && f.pays.errors}">
+                            <option value="{{pays.code}}" *ngFor="let pays of listePays">{{pays.nom}}</option>
+                          </select>
+                          <div *ngIf="submitted && f.pays.errors">
+                            <span class="help-block" style="color: brown" *ngIf="f.pays.errors.required">Merci de selectionner votre pays </span>
+                           </div>
+                        </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="select1">Region</label>
+                        <div class="col-md-9">
+                          <select id="select1" formControlName="region" class="form-control" (change)="getVilles($event)"
+                          [ngClass]="{'is-invalid' : submitted && f.region.errors}">
+                            <option value="{{region.code}}" *ngFor="let region of listeRegion">{{region.nom}}</option>
+                          </select>
+                          <div *ngIf="submitted && f.region.errors">
+                            <span class="help-block" style="color: brown" *ngIf="f.region.errors.required">Merci de selectionner votre region </span>
+                           </div>
+                        </div>
+                      </div>
+    
+    
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="select1">Ville</label>
+                        <div class="col-md-9">
+                          <select id="select2" formControlName="ville" class="form-control"
+                          [ngClass]="{'is-invalid' : submitted && f.ville.errors}">
+                            <option value="{{ville.code}}" *ngFor="let ville of listeVille">{{ville.nom}}</option>
+                          </select>
+                          <div *ngIf="submitted && f.ville.errors">
+                            <span class="help-block" style="color: brown" *ngIf="f.ville.errors.required">Merci de selectionner votre ville </span>
+                           </div>
+                        </div>
+                      </div>
+    
+                      <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="select1">Statut</label>
+                        <div class="col-md-9">
+                          <select id="select3" formControlName="statut" class="form-control"
+                          [ngClass]="{'is-invalid' : submitted && f.statut.errors}">
+                            <option value="1">Actif</option>
+                            <option value="2">inactif</option>
+                            <option value="3">bloqué</option>
+                          </select>
+                          <div *ngIf="submitted && f.statut.errors">
+                            <span class="help-block" style="color: brown" *ngIf="f.statut.errors.required">Merci de selectionner le statut </span>
+                           </div>
+                        </div>
+                      </div>  
+    
+                    </div>
+    
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Editer le client </button>
+                    <button type="reset" class="btn btn-sm btn-danger" (click)=onReset()><i class="fa fa-ban"></i>Annuler</button>
+                  </div>
+    
+                <app-loader [show]="showSpinner"></app-loader>
+    
+              </div>
+  
+         </form>
+  
+        </div>
+      </div>
+    </section>
+  
+  </div>
+  

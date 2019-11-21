@@ -1,0 +1,11 @@
+<div class="card-footer">
+  <ul class="pagination" *ngIf="pageAble.arrayPage.length !=1 && pageAble.arrayPage.length !=0">
+    <li class="page-item" [ngClass]="{'desactive': pageAble.pageNumber ==0}"><a class="page-link" (click)="pageAble=((pageAble.pageNumber !=0)? getCurrentPage(url,(pageAble.pageNumber - 1),pageAble.sizePage) : pageAble)">Prev</a></li>
+    <li class="page-item"  *ngFor="let page of pageAble.arrayPage; let i=index" [ngClass]="{'active': i == pageAble.pageNumber}">
+      <a class="page-link" (click)="pageAble=getCurrentPage(url,i,pageAble.sizePage)" style="cursor: pointer">{{i+1}}</a>
+    </li>
+    <li class="page-item" [ngClass]="{'desactive': pageAble.pageNumber +1 == pageAble.arrayPage.length }"><a class="page-link" (click)="pageAble=((pageAble.pageNumber+1 != pageAble.arrayPage.length)? getCurrentPage(url,(pageAble.pageNumber +1),pageAble.sizePage) : pageAble)">Next</a></li>
+  </ul>
+</div>
+
+<app-loader [show]="showSpinner"></app-loader>

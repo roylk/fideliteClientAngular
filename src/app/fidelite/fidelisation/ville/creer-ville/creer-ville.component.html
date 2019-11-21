@@ -1,0 +1,92 @@
+<div class="animated fadeIn">
+
+        <h4 class="title bg-light p-2 m-3">  Creer une villes </h4>
+        <section class="bg-light ">
+          <div class="row">
+      
+            <div class="col-12 col-md-12">
+      
+              <div class="card" *ngIf="errBack">
+                <div class="card-body">
+                  <div>
+                    <alert [type]="danger" [dismissible]="dismissible">{{ msgError }}</alert>
+                  </div>
+                </div>
+              </div>
+      
+              <form  [formGroup]="createCustomerForm"  (ngSubmit)="onSubmit()"  class="form-horizontal">
+      
+                <div class="card">
+      
+                  <div class="card-header">
+                    <strong>Creation </strong> d'une ville
+                  </div>
+      
+                  <div class="card-body">
+      
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="text-input">Code </label>
+                      <div class="col-md-9">
+                        <input type="text" id="text-input" formControlName="code"
+                               class="form-control" placeholder="votre code" [ngClass]="{'is-invalid' : submitted && f.code.errors}">
+                        <div *ngIf="submitted && f.code.errors">
+                          <span class="help-block" style="color: brown" *ngIf="f.code.errors.required">Le code est obligatoire </span>
+                        </div>
+                      </div>
+                    </div>
+      
+      
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="text-input2">Nom</label>
+                      <div class="col-md-9">
+                        <input type="text" id="text-input2" formControlName="nom" class="form-control"
+                               [ngClass]="{'is-invalid' : submitted && f.nom.errors}" placeholder="Nom de la région">
+                        <div *ngIf="submitted && f.nom.errors">
+                          <span class="help-block" style="color: brown" *ngIf="f.nom.errors.required">Le nom de la est obligatoire </span>
+                        </div>
+                      </div>
+                    </div>
+    
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="select1">Region</label>
+                        <div class="col-md-9">
+                          <select id="select1" formControlName="region" class="form-control" (change)="getRegion($event)"
+                          [ngClass]="{'is-invalid' : submitted && f.region.errors}">
+                            <option value="{{region.id}}" *ngFor="let region of listeRegions">{{region.nom}}</option>
+                          </select>
+                          <div *ngIf="submitted && f.region.errors">
+                            <span class="help-block" style="color: brown" *ngIf="f.region.errors.required">Merci de selectionner région </span>
+                           </div>
+                        </div>
+                      </div>
+      
+                    <div class="form-group row">
+                      <label class="col-md-3 col-form-label" for="devise">Description</label>
+                      <div class="col-md-9">
+                        <textarea class="form-control" id="devise"
+                                  formControlName="description" placeholder="La description"
+                                  [ngClass]="{'is-invalid' : submitted && f.description.errors}" rows="8"> </textarea>
+                        <div *ngIf="submitted && f.description.errors">
+                          <span class="help-block" style="color: brown" *ngIf="f.description.errors.required">Merci de saisir une brève description</span>
+                        </div>
+                      </div>
+                    </div>
+      
+                  </div>
+      
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Creer la ville </button>
+                    <button type="reset" class="btn btn-sm btn-danger" (click)=onReset()><i class="fa fa-ban"></i> Annuler </button>
+                  </div>
+      
+                </div>
+      
+              </form>
+      
+            </div>
+      
+          </div>
+        </section>
+      
+      </div>
+      

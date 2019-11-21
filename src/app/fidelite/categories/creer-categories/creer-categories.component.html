@@ -1,0 +1,152 @@
+<div class="animated fadeIn">
+
+
+  <h4 class="title bg-light p-2">  Enregistrer une catégorie de carte </h4>
+  <section class="bg-light ">
+    <div class="row">
+
+      <div class="col-12 col-md-12">
+
+        <div class="card" *ngIf="errBack">
+          <div class="card-body">
+            <div>
+              <alert [type]="danger" [dismissible]="dismissible">{{ msgError }}</alert>
+            </div>
+          </div>
+        </div>
+
+        <form  [formGroup]="createCustomerForm"  (ngSubmit)="onSubmit()"  class="form-horizontal">
+
+          <div class="card">
+
+            <div class="card-header">
+              <strong>Creation </strong> d'une catégorie
+            </div>
+
+            <div class="card-body">
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="text-input">Code Catégorie </label>
+                <div class="col-md-9">
+                  <input type="text" id="text-input" formControlName="code"
+                         class="form-control" placeholder="code ici" [ngClass]="{'is-invalid' : submitted && f.code.errors}">
+                  <div *ngIf="submitted && f.code.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.code.errors.required">Le code est obligatoire </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="text-input2">Nom </label>
+                <div class="col-md-9">
+                  <input type="text" id="text-input2" formControlName="lebelle" class="form-control"
+                         [ngClass]="{'is-invalid' : submitted && f.lebelle.errors}" placeholder="nom de la catégorie">
+                  <div *ngIf="submitted && f.lebelle.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.lebelle.errors.required">L'acronyme doit etre au moins de trois (03) caractères </span>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- <div class="form-group row">
+                 <label class="col-md-3 col-form-label" for="text-input3">Prénom</label>
+                 <div class="col-md-9">
+                   <input type="text" id="text-input3" formControlName="prenom" class="form-control" placeholder="Prénom client">                    </div>
+               </div>-->
+
+              <!-- <div class="form-group row">
+                 <label class="col-md-3 col-form-label" for="date-input">Date de naissance</label>
+                 <div class="col-md-9">
+                   <input class="form-control" id="date-input" type="date"
+                    formControlName="dateNaissance" placeholder="date"
+                    [ngClass]="{'is-invalid' : submitted && f.dateNaissance.errors}">
+                    <div *ngIf="submitted && f.dateNaissance.errors">
+                     <span class="help-block" style="color: brown" *ngIf="f.dateNaissance.errors.required">Merci de saisir une date valide</span>
+                    </div>
+                 </div>
+               </div>-->
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="text-input4">Periodicit&eacute;</label>
+                <div class="col-md-9">
+                  <input type="text" id="text-input4" formControlName="periodicite"
+                         class="form-control" placeholder="periodicité de la catégorité"
+                         [ngClass]="{'is-invalid' : submitted && f.periodicite.errors}">
+                  <div *ngIf="submitted && f.periodicite.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.periodicite.errors.required">L'adresse doit avoir au moins 3 et au plus 20 carractères</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="selectAc">Action</label>
+                <div class="col-md-9">
+                  <select id="selectAc" formControlName="action" class="form-control"
+                          [ngClass]="{'is-invalid' : submitted && f.action.errors}">
+                    <option value="1">Manuel</option>
+                    <option value="2">Automatique</option>
+                  </select>
+                  <div *ngIf="submitted && f.action.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.action.errors.required">Merci de selectionner le status </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="select1">Statut</label>
+                <div class="col-md-9">
+                  <select id="select1" formControlName="statut" class="form-control"
+                          [ngClass]="{'is-invalid' : submitted && f.statut.errors}">
+                    <option value="1">Actif</option>
+                    <option value="2">inactif</option>
+                    <option value="3">bloqué</option>
+                  </select>
+                  <div *ngIf="submitted && f.statut.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.statut.errors.required">Merci de selectionner le status </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="selectPol">Politique d'&eacute;valution</label>
+                <div class="col-md-9">
+                  <select id="selectPol" formControlName="politiqueEvaluation" class="form-control"
+                          [ngClass]="{'is-invalid' : submitted && f.politiqueEvaluation.errors}">
+                    <option value="{{value.code}}" *ngFor="let value of politiqueEvalution">{{value.libele}}</option>
+                  </select>
+                  <div *ngIf="submitted && f.politiqueEvaluation.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.politiqueEvaluation.required">Merci de selectionner la politique d'evaluation </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="commercant">Commercant</label>
+                <div class="col-md-9">
+                  <select id="commercant" formControlName="commercant" class="form-control"
+                          [ngClass]="{'is-invalid' : submitted && f.commercant.errors}">
+                    <option value="{{value.code}}" *ngFor="let value of commercant">{{value.nom}}</option>
+                  </select>
+                  <div *ngIf="submitted && f.commercant.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.commercant.required">Merci de selectionner le commercant </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="card-footer">
+              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Creer la cat&eacute;gorie </button>
+              <button type="reset" class="btn btn-sm btn-danger" (click)=onReset()><i class="fa fa-ban"></i> Annuler </button>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+</div>

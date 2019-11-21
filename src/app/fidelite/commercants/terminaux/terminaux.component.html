@@ -1,0 +1,70 @@
+<div class="animated fadeIn">
+
+  <h4 class="title bg-light p-2">  Liste des terminaux </h4>
+
+  <div class="col-12 col-sm-12 col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Terminaux
+        <i class="fa fa-plus float-right bg-blue p-2 " style="color: #fff; cursor: pointer" routerLink="/fidelite/commercants/creer-terminal"></i>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped" >
+          <thead>
+          <tr>
+            <th>Code</th>
+            <th>Designation</th>
+            <th>Numero de la serie </th>
+            <th>Commercant </th>
+            <th>Point de vente </th>
+            <th>Statut</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let terminal of terminaux">
+            <td>{{ terminal.code }}</td>
+            <td>{{ terminal.designation }}</td>
+            <td>{{ terminal.numeroSerie }}</td>
+            <td>{{ terminal.pointDeVente.commercantCode.nom }}</td>
+            <td>{{ terminal.pointDeVente.nom }}</td>
+
+            <td>
+              <span *ngIf="terminal.statut==1" class="badge badge-success">Disponible</span>
+              <span *ngIf="terminal.statut==2" class="badge badge-secondary">Hors service</span>
+            </td>
+            <td>
+              <div>
+                <button (click)="delete(point.code)" class="btn btn-danger btn-sm">
+                  <span >  <i  class="cui-trash icons "></i>  </span>
+                </button>
+                <button  class="btn btn-success btn-sm" (click)=editElement(terminal)>
+                  <span >  <i  class="cui-pencil icons "></i>  </span>
+                </button>
+                <!--<button class="btn btn-info btn-sm" (click)=showElement(terminal)>
+                  <span >  <i  class="cui-info icons "></i>  </span>
+                </button>-->
+              </div>
+            </td>
+            <!-- <td  >
+              <span class="badge badge-success">Active</span>
+            </td> -->
+          </tr>
+          </tbody>
+        </table>
+
+        <app-pagination [url]="'pterminals'" [numeroPage]="0" [sizePage]="2" (arrayDataEvent)="addPageItem($event)"></app-pagination>
+        <!-- <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul> -->
+      </div>
+    </div>
+  </div>
+
+</div>

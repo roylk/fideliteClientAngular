@@ -1,0 +1,106 @@
+<div class="animated fadeIn">
+
+  <h4 class="title bg-light p-2 m-3">  Creer  un palier </h4>
+  <section class="bg-light ">
+    <div class="row">
+
+      <div class="col-12 col-md-12">
+
+        <div class="card" *ngIf="errBack">
+          <div class="card-body">
+            <div>
+              <alert [type]="danger" [dismissible]="dismissible">{{ msgError }}</alert>
+            </div>
+          </div>
+        </div>
+
+        <form  [formGroup]="editCustomerForm"  (ngSubmit)="onSubmit()"  class="form-horizontal">
+
+          <div class="card">
+
+            <div class="card-header">
+              <strong>Creation </strong> d'un palier
+            </div>
+
+            <div class="card-body">
+
+              <input formControlName="id" type="hidden" />
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="text-input">Montant inférieur </label>
+                <div class="col-md-9">
+                  <input type="number" id="text-input" formControlName="montantInf"
+                         class="form-control" placeholder="votre montant inferieur " [ngClass]="{'is-invalid' : submitted && f.montantInf.errors}">
+                  <div *ngIf="submitted && f.montantInf.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.montantInf.errors.required">Le montant inférieur est obligatoire </span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="text-input2">Montant supérieur</label>
+                <div class="col-md-9">
+                  <input type="number" id="text-input2" formControlName="montantSup" class="form-control"
+                         [ngClass]="{'is-invalid' : submitted && f.montantSup.errors}" placeholder="Nom client">
+                  <div *ngIf="submitted && f.montantSup.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.montantSup.errors.required">Le montant supérieur est obligatoire </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="devise">Unité de devise</label>
+                <div class="col-md-9">
+                  <input class="form-control" id="devise" type="number"
+                         formControlName="uniteDevise" placeholder="unité de devise"
+                         [ngClass]="{'is-invalid' : submitted && f.uniteDevise.errors}">
+                  <div *ngIf="submitted && f.uniteDevise.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.uniteDevise.errors.required">Merci de saisir une valeur numerique</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="date-input">Unité de point</label>
+                <div class="col-md-9">
+                  <input class="form-control" id="date-input" type="number"
+                         formControlName="unitePoint" placeholder="unité de point"
+                         [ngClass]="{'is-invalid' : submitted && f.unitePoint.errors}">
+                  <div *ngIf="submitted && f.unitePoint.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.unitePoint.errors.required">Merci de saisir une valeur numerique </span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="orien">Offre</label>
+                <div class="col-md-9">
+                  <select id="orien" formControlName="offre" class="form-control"
+                          [ngClass]="{'is-invalid' : submitted && f.offre.errors}">
+                    <option value="{{offre.code}}" *ngFor="let offre of listeOffres">{{offre.libele}}</option>
+                  </select>
+                  <div *ngIf="submitted && f.offre.errors">
+                    <span class="help-block" style="color: brown" *ngIf="f.offre.errors.required">Merci de selectionner l'offre </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="card-footer">
+              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Creer le palier </button>
+              <button type="reset" class="btn btn-sm btn-danger" (click)=onReset()><i class="fa fa-ban"></i> Annuler </button>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+</div>

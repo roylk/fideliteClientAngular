@@ -31,8 +31,8 @@
                 <div class="col-md-9">
                   <select id="type" formControlName="type" class="form-control"
                           [ngClass]="{'is-invalid' : submitted && f.type.errors}">
-                    <option value="1">Par point cumulé</option>
-                    <option value="2">Par montant cumulé</option>
+                    <option value="1">Ratio pt/dev</option>
+                    <option value="2">Remise</option>
                   </select>
                   <div *ngIf="submitted && f.type.errors">
                     <span class="help-block" style="color: brown" *ngIf="f.type.errors.required">Merci de selectionner un modèle de conversion </span>

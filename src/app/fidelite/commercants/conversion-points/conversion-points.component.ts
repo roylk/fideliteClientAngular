@@ -3,6 +3,7 @@ import {Reponse} from '../commercant.model';
 import {Router} from '@angular/router';
 import {RequestsService} from '../../utilitaires/requests.service';
 import {CommercantsService} from '../commercant.service';
+import { UtilitairesService } from '../../utilitaires/utilitaires.service';
 
 @Component({
   selector: 'app-conversion-points',
@@ -13,10 +14,12 @@ export class ConversionPointsComponent implements OnInit {
 
   conversions : any;
   reponse : Reponse;
+  listeConversions: any=[];
 
   constructor( private router : Router,
                private requestService : RequestsService,
-               private commercantsService : CommercantsService) { }
+               private commercantsService : CommercantsService,
+               private utilitairesService : UtilitairesService) { }
 
 
   editElement(conversion){
@@ -24,7 +27,12 @@ export class ConversionPointsComponent implements OnInit {
     this.router.navigate(['fidelite/commercants/editer-conversion']);
   }
 
-  getAllConversions(){
+  addPageItem(arrayData){
+    this.listeConversions =arrayData;}
+
+
+
+  /* getAllConversions(){
     this.requestService.getAllConversions().subscribe(
       (retour)=>{
         console.log("Retour lister commercants ******************* ", JSON.stringify(retour));
@@ -39,11 +47,11 @@ export class ConversionPointsComponent implements OnInit {
         console.log('Erreur lors de la recuperation des conversions ');
       });
   }
-
+ */
   ngOnInit(){
 
-    //recuperation de toute les conversions des points commercants
-    this.getAllConversions();
+   /*  //recuperation de toute les conversions des points commercants
+    this.getAllConversions(); */
   }
 
 }

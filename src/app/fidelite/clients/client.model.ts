@@ -99,6 +99,9 @@ export class Reponse{
         this.message=message;
         this.data=data;
     }
+
+
+    
 }
 
 

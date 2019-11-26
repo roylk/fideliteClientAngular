@@ -4,6 +4,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -63,6 +64,7 @@ import {ClientsModule} from './fidelite/clients/clients.module';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    AlertModule.forRoot(),
   ],
   declarations: [
     AppComponent,

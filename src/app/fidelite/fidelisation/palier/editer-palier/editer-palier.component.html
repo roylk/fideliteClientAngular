@@ -1,6 +1,6 @@
 <div class="animated fadeIn">
 
-  <h4 class="title bg-light p-2 m-3">  Creer  un palier </h4>
+  <h4 class="title bg-light p-2 m-3">  Modifier un palier </h4>
   <section class="bg-light ">
     <div class="row">
 
@@ -19,7 +19,7 @@
           <div class="card">
 
             <div class="card-header">
-              <strong>Creation </strong> d'un palier
+              <strong>Modification </strong> d'un palier
             </div>
 
             <div class="card-body">
@@ -30,7 +30,7 @@
                 <label class="col-md-3 col-form-label" for="text-input">Montant inférieur </label>
                 <div class="col-md-9">
                   <input type="number" id="text-input" formControlName="montantInf"
-                         class="form-control" placeholder="votre montant inferieur " [ngClass]="{'is-invalid' : submitted && f.montantInf.errors}">
+                         class="form-control" placeholder="Montant inferieur " [ngClass]="{'is-invalid' : submitted && f.montantInf.errors}">
                   <div *ngIf="submitted && f.montantInf.errors">
                     <span class="help-block" style="color: brown" *ngIf="f.montantInf.errors.required">Le montant inférieur est obligatoire </span>
                   </div>
@@ -42,7 +42,7 @@
                 <label class="col-md-3 col-form-label" for="text-input2">Montant supérieur</label>
                 <div class="col-md-9">
                   <input type="number" id="text-input2" formControlName="montantSup" class="form-control"
-                         [ngClass]="{'is-invalid' : submitted && f.montantSup.errors}" placeholder="Nom client">
+                         [ngClass]="{'is-invalid' : submitted && f.montantSup.errors}" placeholder="Montant supérieur">
                   <div *ngIf="submitted && f.montantSup.errors">
                     <span class="help-block" style="color: brown" *ngIf="f.montantSup.errors.required">Le montant supérieur est obligatoire </span>
                   </div>
@@ -90,7 +90,7 @@
             </div>
 
             <div class="card-footer">
-              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Creer le palier </button>
+              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Mise &agrave; jour du palier </button>
               <button type="reset" class="btn btn-sm btn-danger" (click)=onReset()><i class="fa fa-ban"></i> Annuler </button>
             </div>
 

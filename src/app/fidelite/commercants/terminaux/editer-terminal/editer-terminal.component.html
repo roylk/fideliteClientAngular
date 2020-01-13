@@ -1,7 +1,7 @@
 <div class="animated fadeIn">
 
 
-  <h4 class="title bg-light p-2">  Enregistrer un terminal </h4>
+  <h4 class="title bg-light p-2">  Modifier un terminal </h4>
   <section class="bg-light ">
     <div class="row">
 
@@ -51,9 +51,9 @@
                 <label class="col-md-3 col-form-label" for="text-input2">Numero de serie</label>
                 <div class="col-md-9">
                   <input type="text" id="text-input2" formControlName="numeroSerie" class="form-control"
-                         [ngClass]="{'is-invalid' : submitted && f.numeroSerie.errors}" placeholder="Nom client">
+                         [ngClass]="{'is-invalid' : submitted && f.numeroSerie.errors}" placeholder="Numero de série">
                   <div *ngIf="submitted && f.numeroSerie.errors">
-                    <span class="help-block" style="color: brown" *ngIf="f.numeroSerie.errors.required">Le nom doit etre au moins de trois (03) caractères </span>
+                    <span class="help-block" style="color: brown" *ngIf="f.numeroSerie.errors.required">Le numero de serie doit etre au moins de trois (03) caractères </span>
                   </div>
                 </div>
               </div>
@@ -68,7 +68,7 @@
                     <option value="3">bloqué</option>
                   </select>
                   <div *ngIf="submitted && f.statut.errors">
-                    <span class="help-block" style="color: brown" *ngIf="f.statut.errors.required">Merci de selectionner le status </span>
+                    <span class="help-block" style="color: brown" *ngIf="f.statut.errors.required">Merci de selectionner le statut </span>
                   </div>
                 </div>
               </div>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="card-footer">
-              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> mise à jour du terminal </button>
+              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i>  Mise &agrave; jour du terminal </button>
               <button type="reset" class="btn btn-sm btn-danger" (click)=onReset()><i class="fa fa-ban"></i> Annuler </button>
             </div>
 

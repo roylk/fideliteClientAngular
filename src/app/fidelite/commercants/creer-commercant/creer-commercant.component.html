@@ -54,7 +54,7 @@
                     <label class="col-md-3 col-form-label" for="text-input2">Nom</label>
                     <div class="col-md-9">
                       <input type="text" id="text-input2" formControlName="nom" class="form-control"
-                      [ngClass]="{'is-invalid' : submitted && f.nom.errors}" placeholder="Nom client">
+                      [ngClass]="{'is-invalid' : submitted && f.nom.errors}" placeholder="Nom commercant">
                       <div *ngIf="submitted && f.nom.errors">
                         <span class="help-block" style="color: brown" *ngIf="f.nom.errors.required">Le nom doit etre au moins de trois (03) caractères </span>
                       </div>
@@ -83,7 +83,7 @@
                     <label class="col-md-3 col-form-label" for="text-input4">Adresse</label>
                     <div class="col-md-9">
                       <input type="text" id="text-input4" formControlName="adresse"
-                       class="form-control" placeholder="adresse client"
+                       class="form-control" placeholder="adresse commercant"
                        [ngClass]="{'is-invalid' : submitted && f.adresse.errors}">
                        <div *ngIf="submitted && f.adresse.errors">
                         <span class="help-block" style="color: brown" *ngIf="f.adresse.errors.required">L'adresse doit avoir au moins 3 et au plus 40 carractères</span>
@@ -105,7 +105,7 @@
                   <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="text-input5">Téléphone2</label>
                     <div class="col-md-9">
-                      <input type="tel" id="text-input5" formControlName="telephone2" class="form-control" placeholder="téléphone 1">
+                      <input type="tel" id="text-input5" formControlName="telephone2" class="form-control" placeholder="téléphone 2">
                     </div>
                   </div>
 
@@ -183,7 +183,7 @@
                         <option value="3">bloqué</option>
                       </select>
                       <div *ngIf="submitted && f.statut.errors">
-                        <span class="help-block" style="color: brown" *ngIf="f.statut.errors.required">Merci de selectionner le status </span>
+                        <span class="help-block" style="color: brown" *ngIf="f.statut.errors.required">Merci de selectionner le statut </span>
                        </div>
                     </div>
                   </div>  

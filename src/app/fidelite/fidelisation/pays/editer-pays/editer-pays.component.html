@@ -19,7 +19,7 @@
           <div class="card">
 
             <div class="card-header">
-              <strong>Edition </strong> d'un pays
+              <strong>Modification </strong> d'un pays
             </div>
 
             <div class="card-body">
@@ -28,7 +28,7 @@
                 <label class="col-md-3 col-form-label" for="text-input"> Code </label>
                 <div class="col-md-9">
                   <input type="text" id="text-input" formControlName="code"
-                         class="form-control" placeholder="votre code" [ngClass]="{'is-invalid' : submitted && f.code.errors}">
+                         class="form-control" placeholder="code ici" [ngClass]="{'is-invalid' : submitted && f.code.errors}">
                   <div *ngIf="submitted && f.code.errors">
                     <span class="help-block" style="color: brown" *ngIf="f.code.errors.required">Le code est obligatoire </span>
                   </div>
@@ -60,7 +60,7 @@
             </div>
 
             <div class="card-footer">
-              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Editer le pays </button>
+              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Mise &agrave; jour du pays </button>
               <button type="reset" class="btn btn-sm btn-danger" (click)=onReset()><i class="fa fa-ban"></i> Annuler </button>
             </div>
 

@@ -30,8 +30,8 @@
                 <div class="col-md-9">
                   <select id="type" formControlName="type" class="form-control"
                           [ngClass]="{'is-invalid' : submitted && f.type.errors}">
-                    <option value="1">Par point cumulé</option>
-                    <option value="2">Par montant cumulé</option>
+                    <option value="1">Ratio pt/dev </option>
+                    <option value="2">Remise</option>
                   </select>
                   <div *ngIf="submitted && f.type.errors">
                     <span class="help-block" style="color: brown" *ngIf="f.type.errors.required">Merci de selectionner un modèle de conversion </span>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="card-footer">
-              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Creer le model </button>
+              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Creer le modele  </button>
               <button type="reset" class="btn btn-sm btn-danger" (click)=onReset()><i class="fa fa-ban"></i> Annuler </button>
             </div>
 

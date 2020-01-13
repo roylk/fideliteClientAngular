@@ -20,7 +20,7 @@
                         <label class="col-md-3 col-form-label" for="text-input">Code Client</label>
                         <div class="col-md-9">
                           <input type="text" id="text-input" formControlName="code" 
-                          class="form-control" placeholder="votre code" [ngClass]="{'is-invalid' : submitted && f.code.errors}" readonly>
+                          class="form-control" placeholder="code ici" [ngClass]="{'is-invalid' : submitted && f.code.errors}" readonly>
                           <div *ngIf="submitted && f.code.errors">
                             <span class="help-block" style="color: brown" *ngIf="f.code.errors.required">Le code est obligatoire </span>
                           </div>

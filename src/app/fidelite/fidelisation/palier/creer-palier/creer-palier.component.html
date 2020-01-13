@@ -28,7 +28,7 @@
                 <label class="col-md-3 col-form-label" for="text-input">Montant inférieur </label>
                 <div class="col-md-9">
                   <input type="number" id="text-input" formControlName="montantInf"
-                         class="form-control" placeholder="votre montant inferieur " [ngClass]="{'is-invalid' : submitted && f.montantInf.errors}">
+                         class="form-control" placeholder="Montant inferieur " [ngClass]="{'is-invalid' : submitted && f.montantInf.errors}">
                   <div *ngIf="submitted && f.montantInf.errors">
                     <span class="help-block" style="color: brown" *ngIf="f.montantInf.errors.required">Le montant inférieur est obligatoire </span>
                   </div>
@@ -40,7 +40,7 @@
                 <label class="col-md-3 col-form-label" for="text-input2">Montant supérieur</label>
                 <div class="col-md-9">
                   <input type="number" id="text-input2" formControlName="montantSup" class="form-control"
-                         [ngClass]="{'is-invalid' : submitted && f.montantSup.errors}" placeholder="Nom client">
+                         [ngClass]="{'is-invalid' : submitted && f.montantSup.errors}" placeholder="Montant supérieur">
                   <div *ngIf="submitted && f.montantSup.errors">
                     <span class="help-block" style="color: brown" *ngIf="f.montantSup.errors.required">Le montant supérieur est obligatoire </span>
                   </div>

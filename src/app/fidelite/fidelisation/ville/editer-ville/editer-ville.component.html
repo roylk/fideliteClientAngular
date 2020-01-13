@@ -29,7 +29,7 @@
                       <label class="col-md-3 col-form-label" for="text-input">Code </label>
                       <div class="col-md-9">
                         <input type="text" id="text-input" formControlName="code"
-                               class="form-control" placeholder="votre code" [ngClass]="{'is-invalid' : submitted && f.code.errors}">
+                               class="form-control" placeholder="code ici" [ngClass]="{'is-invalid' : submitted && f.code.errors}">
                         <div *ngIf="submitted && f.code.errors">
                           <span class="help-block" style="color: brown" *ngIf="f.code.errors.required">Le code est obligatoire </span>
                         </div>
@@ -41,7 +41,7 @@
                       <label class="col-md-3 col-form-label" for="text-input2">Nom</label>
                       <div class="col-md-9">
                         <input type="text" id="text-input2" formControlName="nom" class="form-control"
-                               [ngClass]="{'is-invalid' : submitted && f.nom.errors}" placeholder="Nom de la région">
+                               [ngClass]="{'is-invalid' : submitted && f.nom.errors}" placeholder="Nom de la ville">
                         <div *ngIf="submitted && f.nom.errors">
                           <span class="help-block" style="color: brown" *ngIf="f.nom.errors.required">Le nom de la est obligatoire </span>
                         </div>
@@ -76,7 +76,7 @@
                   </div>
       
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Editer la ville </button>
+                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Mise &agrave; jour ville </button>
                     <button type="reset" class="btn btn-sm btn-danger" (click)=onReset()><i class="fa fa-ban"></i> Annuler </button>
                   </div>
       

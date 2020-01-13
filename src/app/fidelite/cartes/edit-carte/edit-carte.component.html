@@ -20,7 +20,7 @@
           <div class="card">
 
             <div class="card-header">
-              <strong>Creation </strong> d'une carte
+              <strong>Modification </strong> d'une carte
             </div>
 
             <div class="card-body">
@@ -28,7 +28,7 @@
               <div class="form-group row">
                 <label class="col-md-3 col-form-label" for="text-input">Numero de la carte </label>
                 <div class="col-md-9">
-                  <input type="text" id="text-input" formControlName="numero"
+                  <input type="text" id="text-input" formControlName="numero ici"
                          class="form-control" placeholder="numero de carte" [ngClass]="{'is-invalid' : submitted && f.numero.errors}" readonly>
                   <div *ngIf="submitted && f.numero.errors">
                     <span class="help-block" style="color: brown" *ngIf="f.numero.errors.required">Le numero de la carte est obligatoire </span>
@@ -68,7 +68,7 @@
                     <option value="2">Vendu</option>
                   </select>
                   <div *ngIf="submitted && f.statut.errors">
-                    <span class="help-block" style="color: brown" *ngIf="f.statut.errors.required">Merci de selectionner le status de la caarte </span>
+                    <span class="help-block" style="color: brown" *ngIf="f.statut.errors.required">Merci de selectionner le status de la carte </span>
                   </div>
                 </div>
               </div>

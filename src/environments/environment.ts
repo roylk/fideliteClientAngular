@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl : 'http://localhost:8080/ufifidelite/api'
-  //apiUrl : 'http://192.168.2.3:9001/ufifidelite/api'
+  //apiUrl : 'http://localhost:8080/ufifidelite/api'
+  apiUrl : 'http://192.168.2.3:9001/ufifidelite/api'
 };

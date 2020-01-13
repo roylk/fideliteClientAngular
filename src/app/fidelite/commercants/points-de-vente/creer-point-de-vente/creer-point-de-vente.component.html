@@ -29,7 +29,7 @@
                 <label class="col-md-3 col-form-label" for="text-input">Code point de Vente</label>
                 <div class="col-md-9">
                   <input type="text" id="text-input" formControlName="code"
-                         class="form-control" placeholder="votre code" [ngClass]="{'is-invalid' : submitted && f.code.errors}">
+                         class="form-control" placeholder="code ici" [ngClass]="{'is-invalid' : submitted && f.code.errors}">
                   <div *ngIf="submitted && f.code.errors">
                     <span class="help-block" style="color: brown" *ngIf="f.code.errors.required">Le code est obligatoire </span>
                   </div>
@@ -42,7 +42,7 @@
                   <input type="text" id="acrony" formControlName="acronyme" class="form-control"
                          [ngClass]="{'is-invalid' : submitted && f.acronyme.errors}" placeholder="Acronyme ...">
                   <div *ngIf="submitted && f.acronyme.errors">
-                    <span class="help-block" style="color: brown" *ngIf="f.acronyme.errors.required">Le nom doit etre au moins de trois (03) caractères </span>
+                    <span class="help-block" style="color: brown" *ngIf="f.acronyme.errors.required">L'acronyme doit etre au moins de trois (03) caractères </span>
                   </div>
                 </div>
               </div>
@@ -51,7 +51,7 @@
                 <label class="col-md-3 col-form-label" for="text-input2">Nom</label>
                 <div class="col-md-9">
                   <input type="text" id="text-input2" formControlName="nom" class="form-control"
-                         [ngClass]="{'is-invalid' : submitted && f.nom.errors}" placeholder="Nom client">
+                         [ngClass]="{'is-invalid' : submitted && f.nom.errors}" placeholder="Nom point de vente">
                   <div *ngIf="submitted && f.nom.errors">
                     <span class="help-block" style="color: brown" *ngIf="f.nom.errors.required">Le nom doit etre au moins de trois (03) caractères </span>
                   </div>

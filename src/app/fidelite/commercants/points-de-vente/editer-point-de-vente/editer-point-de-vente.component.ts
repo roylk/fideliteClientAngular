@@ -45,7 +45,7 @@ export class EditerPointDeVenteComponent implements OnInit {
       this.editCustomerForm = this.fb.group({
         code: [pointDeVente.code, Validators.required],
         acronyme: [pointDeVente.acronyme, Validators.required],
-        nom: [pointDeVente.acronyme, [Validators.required, Validators.minLength(3)]],
+        nom: [pointDeVente.nom, [Validators.required, Validators.minLength(3)]],
         adresse:[pointDeVente.adresse, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
         email: [pointDeVente.email, Validators.required],
         telephone1:[pointDeVente.telephone1,Validators.required],

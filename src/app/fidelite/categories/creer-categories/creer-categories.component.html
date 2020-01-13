@@ -20,7 +20,7 @@
           <div class="card">
 
             <div class="card-header">
-              <strong>Creation </strong> d'une catégorie
+              <strong>Creation </strong> d'une catégorie de carte
             </div>
 
             <div class="card-body">
@@ -70,10 +70,10 @@
                 <label class="col-md-3 col-form-label" for="text-input4">Periodicit&eacute;</label>
                 <div class="col-md-9">
                   <input type="text" id="text-input4" formControlName="periodicite"
-                         class="form-control" placeholder="periodicité de la catégorité"
+                         class="form-control" placeholder="periodicité de la catégorie"
                          [ngClass]="{'is-invalid' : submitted && f.periodicite.errors}">
                   <div *ngIf="submitted && f.periodicite.errors">
-                    <span class="help-block" style="color: brown" *ngIf="f.periodicite.errors.required">L'adresse doit avoir au moins 3 et au plus 20 carractères</span>
+                    <span class="help-block" style="color: brown" *ngIf="f.periodicite.errors.required">La périodicité doit avoir au moins 3 et au plus 20 carractères</span>
                   </div>
                 </div>
               </div>
@@ -87,7 +87,7 @@
                     <option value="2">Automatique</option>
                   </select>
                   <div *ngIf="submitted && f.action.errors">
-                    <span class="help-block" style="color: brown" *ngIf="f.action.errors.required">Merci de selectionner le status </span>
+                    <span class="help-block" style="color: brown" *ngIf="f.action.errors.required">Merci de selectionner une action</span>
                   </div>
                 </div>
               </div>
@@ -102,7 +102,7 @@
                     <option value="3">bloqué</option>
                   </select>
                   <div *ngIf="submitted && f.statut.errors">
-                    <span class="help-block" style="color: brown" *ngIf="f.statut.errors.required">Merci de selectionner le status </span>
+                    <span class="help-block" style="color: brown" *ngIf="f.statut.errors.required">Merci de selectionner le statut </span>
                   </div>
                 </div>
               </div>

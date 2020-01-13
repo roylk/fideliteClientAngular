@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AccueilComponent} from '../dashboard/accueil.component';
 import {FideliteComponent} from '../fidelite.component';
+import { AuthGuardGuard } from '../utilitaires/auth-guard.guard';
 
 const routes: Routes = [
   {
     path: '',
     data: {
-      title: 'Fidelite'
+      title: 'Fidelite',
+      canActivate: [AuthGuardGuard]
     },
     children: [
       {

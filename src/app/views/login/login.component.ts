@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Reponse } from '../../fidelite/clients/client.model';
+import { AuthGuardGuard } from '../../fidelite/utilitaires/auth-guard.guard';
 import { LoginService } from '../../fidelite/utilitaires/login.service';
 import { Router } from '@angular/router';
 import { AlertConfig } from 'ngx-bootstrap/alert';
@@ -28,7 +29,7 @@ export class LoginComponent {
    login: any;
    motDePasse:any;
 
-   constructor(private fb : FormBuilder,  private router : Router, private loginService:LoginService) { }
+   constructor(private fb : FormBuilder,  private router : Router, private loginService: LoginService, private authService :AuthGuardGuard) { }
 
    //recuperation du formulaire pour les test de validation
   get f(){
@@ -51,10 +52,11 @@ export class LoginComponent {
       this.loginService.connexion(this.login).subscribe(
         (retour)=>{
 
-          console.log("Retour creation d'une région ******************* ", JSON.stringify(retour));
+          console.log("Retour creation d'une utilisateur ******************* ", JSON.stringify(retour));
           this.reponse=retour;
           if (this.reponse.status==1){
             this.errBack=false;
+            localStorage.setItem('user', JSON.stringify(this.login));
             console.log("back-end", this.reponse.message);
             this.router.navigate(['/dashboard']);
           } else{
@@ -65,7 +67,7 @@ export class LoginComponent {
         },
         (err)=>{
           this.errBack=true;
-          console.log("Erreur lors de la creation de la villes");
+          console.log("Erreur lors de la connexion de l'utilisateur");
         })
     }
 

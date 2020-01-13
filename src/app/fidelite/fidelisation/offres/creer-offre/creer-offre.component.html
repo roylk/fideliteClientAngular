@@ -28,7 +28,7 @@
                 <label class="col-md-3 col-form-label" for="text-input">Code </label>
                 <div class="col-md-9">
                   <input type="text" id="text-input" formControlName="code"
-                         class="form-control" placeholder="votre code" [ngClass]="{'is-invalid' : submitted && f.code.errors}">
+                         class="form-control" placeholder="code ici" [ngClass]="{'is-invalid' : submitted && f.code.errors}">
                   <div *ngIf="submitted && f.code.errors">
                     <span class="help-block" style="color: brown" *ngIf="f.code.errors.required">Le code est obligatoire </span>
                   </div>
@@ -40,9 +40,9 @@
                 <label class="col-md-3 col-form-label" for="text-input2">Libele</label>
                 <div class="col-md-9">
                   <input type="text" id="text-input2" formControlName="libele" class="form-control"
-                         [ngClass]="{'is-invalid' : submitted && f.libele.errors}" placeholder="Nom client">
+                         [ngClass]="{'is-invalid' : submitted && f.libele.errors}" placeholder="Libelé ici">
                   <div *ngIf="submitted && f.libele.errors">
-                    <span class="help-block" style="color: brown" *ngIf="f.libele.errors.required">Le nom doit etre au moins de trois (03) caractères </span>
+                    <span class="help-block" style="color: brown" *ngIf="f.libele.errors.required">Le libele doit etre au moins de trois (03) caractères </span>
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@
                     <option value="2">inactif</option>
                   </select>
                   <div *ngIf="submitted && f.statut.errors">
-                    <span class="help-block" style="color: brown" *ngIf="f.statut.errors.required">Merci de selectionner le status </span>
+                    <span class="help-block" style="color: brown" *ngIf="f.statut.errors.required">Merci de selectionner le statut </span>
                   </div>
                 </div>
               </div>
@@ -129,8 +129,8 @@
             </div>
 
             <div class="card-footer">
-              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Creer l'offre </button>
-              <button type="reset" class="btn btn-sm btn-danger" (click)=onReset()><i class="fa fa-ban"></i> Reset</button>
+              <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Creation de l'offre </button>
+              <button type="reset" class="btn btn-sm btn-danger" (click)=onReset()><i class="fa fa-ban"></i> Annuler</button>
             </div>
 
           </div>

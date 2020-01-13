@@ -19,7 +19,7 @@
           <div class="card">
 
             <div class="card-header">
-              <strong>Editer </strong> d'un type d'offre
+              <strong>Modification </strong> d'un type d'offre
             </div>
 
             <div class="card-body">
@@ -28,7 +28,7 @@
                 <label class="col-md-3 col-form-label" for="text-input">Code </label>
                 <div class="col-md-9">
                   <input type="text" id="text-input" formControlName="code"
-                         class="form-control" placeholder="votre code" [ngClass]="{'is-invalid' : submitted && f.code.errors}" readonly>
+                         class="form-control" placeholder="code ici" [ngClass]="{'is-invalid' : submitted && f.code.errors}" readonly>
                   <div *ngIf="submitted && f.code.errors">
                     <span class="help-block" style="color: brown" *ngIf="f.code.errors.required">Le code est obligatoire </span>
                   </div>
@@ -37,12 +37,12 @@
 
 
               <div class="form-group row">
-                <label class="col-md-3 col-form-label" for="text-input2">Le libelé</label>
+                <label class="col-md-3 col-form-label" for="text-input2">Libelé</label>
                 <div class="col-md-9">
                   <input type="text" id="text-input2" formControlName="libelle" class="form-control"
-                         [ngClass]="{'is-invalid' : submitted && f.libelle.errors}" placeholder="Nom client">
+                         [ngClass]="{'is-invalid' : submitted && f.libelle.errors}" placeholder="Libelé">
                   <div *ngIf="submitted && f.libelle.errors">
-                    <span class="help-block" style="color: brown" *ngIf="f.libelle.errors.required">Le libelle est obligatoire </span>
+                    <span class="help-block" style="color: brown" *ngIf="f.libelle.errors.required">Le libelé est obligatoire </span>
                   </div>
                 </div>
               </div>

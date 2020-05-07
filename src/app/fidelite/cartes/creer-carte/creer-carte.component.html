@@ -28,7 +28,7 @@
               <div class="form-group row">
                 <label class="col-md-3 col-form-label" for="text-input">Numero de la carte </label>
                 <div class="col-md-9">
-                  <input type="text" id="text-input" formControlName="numero ici"
+                  <input type="text" id="text-input" formControlName="numero"
                          class="form-control" placeholder="numero de carte" [ngClass]="{'is-invalid' : submitted && f.numero.errors}">
                   <div *ngIf="submitted && f.numero.errors">
                     <span class="help-block" style="color: brown" *ngIf="f.numero.errors.required">Le numero de la carte est obligatoire </span>
@@ -65,8 +65,8 @@
                 <div class="col-md-9">
                   <select id="select1" formControlName="statut" class="form-control"
                           [ngClass]="{'is-invalid' : submitted && f.statut.errors}">
-                    <option value="1">Disponible</option>
-                    <option value="2">Vendu</option>
+                    <option value="1" readonly>Disponible</option>
+                    <!-- <option value="2">Vendu</option> -->
                   </select>
                   <div *ngIf="submitted && f.statut.errors">
                     <span class="help-block" style="color: brown" *ngIf="f.statut.errors.required">Merci de selectionner le status de la caarte </span>

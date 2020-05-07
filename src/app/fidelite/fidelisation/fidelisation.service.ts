@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {OffreMirror, PalierMirror, Reponse, TypeOffreMirror} from './fidelisation.model';
+import {OffreMirror, PalierMirror, Reponse, TypeOffreMirror, UserMirror} from './fidelisation.model';
 import { UtilitairesService } from '../utilitaires/utilitaires.service';
 import {environment} from '../../../environments/environment'
 import {PaysMirror, RegionMirror,VilleMirror} from '../clients/client.model';
@@ -22,6 +22,7 @@ export class FidelisationService {
   private pays : PaysMirror;
   private region: RegionMirror;
   private ville: VilleMirror;
+  private utilisateur: UserMirror;
 
   constructor(private http :HttpClient, private utilitairesService:UtilitairesService) { }
 
@@ -188,6 +189,12 @@ setNewoffre(offre : OffreMirror){
   setNewVille(villeMirror : VilleMirror){
     this.ville = new VilleMirror(villeMirror.id,villeMirror.code, villeMirror.nom, villeMirror.dateCreation, villeMirror.region, villeMirror.description)
   }
+
+  setNewUtilisateur(userMirror: UserMirror){
+    this.utilisateur = new UserMirror(userMirror.id,userMirror.nom, userMirror.prenom, userMirror.telephone, userMirror.email, userMirror.login,userMirror.motDePasse, userMirror.sexe, userMirror.statut, userMirror.commercant,userMirror.role )
+  }
+
+
 /*** initialisation d'un offre ****/
 getCurrentOffre(){
   return this.offre;
@@ -215,6 +222,11 @@ getCurrentOffre(){
 
   getCurrentVille(){
     return this.ville;
+
+  }
+
+  getCurrentUtilisateur(){
+    return this.utilisateur;
 
   }
 

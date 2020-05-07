@@ -1,5 +1,16 @@
 <div class="animated fadeIn">
+  <!-- <script language="javascript">
+    setInterval(function(){
+       window.location.reload(1);
+    }, 30000);
+    </script> -->
 
+    <app-auto-refresh 
+          (TimerExpired)="refresh()"  
+          [hidden]="'true'">
+    </app-auto-refresh>
+
+    
   <h4 class="title bg-light p-2 m-3">  Liste des cartes </h4>
 
   <div class="col-12 col-sm-12 col-md-12">
@@ -9,6 +20,11 @@
       </div>
       <div class="card-body">
         <table class="table table-striped" >
+          <!-- <script language="javascript">
+            setInterval(function(){
+               window.location.reload(1);
+            }, 30000);
+            </script> -->
           <thead>
           <tr>
             <th>Numero</th>

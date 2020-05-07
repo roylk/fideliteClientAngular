@@ -17,6 +17,7 @@ import {
 import {AlertModule} from 'ngx-bootstrap';
 import { UtilitairesModule } from '../utilitaires/utilitaires.module';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { AutoRefreshComponent } from '../auto-refresh/auto-refresh.component';
 
 
 
@@ -36,7 +37,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
     MatFormFieldModule,
     MatInputModule,
     AlertModule.forRoot(),
-    UtilitairesModule
+    UtilitairesModule,
+    
   ]
 })
 export class CartesModule { }

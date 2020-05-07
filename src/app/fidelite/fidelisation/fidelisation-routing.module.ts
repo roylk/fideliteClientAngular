@@ -19,7 +19,6 @@ import { EditerRegionComponent } from './region/editer-region/editer-region.comp
 import { EditerVilleComponent } from './ville/editer-ville/editer-ville.component';
 import { CreerVilleComponent } from './ville/creer-ville/creer-ville.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -67,6 +66,8 @@ const routes: Routes = [
       title: 'Editer un palier'
     }
   },
+  
+
   {
     path: 'lister-type-offres',
     component: TypeOffreComponent,

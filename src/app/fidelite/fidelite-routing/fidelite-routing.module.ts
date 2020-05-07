@@ -3,6 +3,9 @@ import {RouterModule, Routes} from '@angular/router';
 import {AccueilComponent} from '../dashboard/accueil.component';
 import {FideliteComponent} from '../fidelite.component';
 import { AuthGuardGuard } from '../utilitaires/auth-guard.guard';
+import { UtilisateursComponent } from '../utilisateurs/utilisateurs.component';
+import { CreerUtilisateurComponent } from '../utilisateurs/creer-utilisateur/creer-utilisateur.component';
+import { EditerUtilisateurComponent } from '../utilisateurs/editer-utilisateur/editer-utilisateur.component';
 
 const routes: Routes = [
   {
@@ -23,6 +26,40 @@ const routes: Routes = [
           title: 'Accueil'
         }
       },
+
+      {
+        path: 'lister-utilisateurs',
+        component: UtilisateursComponent,
+        data: {
+          title: 'Lister les utilisateurs'
+        }
+      },
+      {
+        path: 'creer-utilisateurs',
+        component: CreerUtilisateurComponent,
+        data: {
+          title: 'Creer les utilisateurs'
+        }
+      },
+    
+      {
+        path: 'editer-utilisateurs',
+        component: EditerUtilisateurComponent,
+        data: {
+          title: 'Editer les utilisateurs'
+        }
+      },
+    
+
+
+
+
+
+
+
+
+
+
       {
         path: 'clients',
         component : FideliteComponent,

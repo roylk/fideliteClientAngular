@@ -1,0 +1,80 @@
+<div class="animated fadeIn">
+
+    <h4 class="title bg-light p-2 m-3">  Gestion des utilisateurs </h4>
+  
+    <div class="col-12 col-sm-12 col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Table des utilisateurs
+          <i class="fa fa-plus float-right bg-blue p-2 " style="color: #fff; cursor: pointer" routerLink="/fidelite/creer-utilisateurs"></i>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped" >
+  
+  
+            <thead>
+            <tr>
+              <th>id</th>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Téléphone</th>
+              <th>Email</th>
+              <th>Login</th> 
+              <!-- <th>Sexe</th> -->
+              <!-- <th>Commercant</th> -->
+              <th>Role</th>
+              <th>Statut</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let utilisateur of users">
+              <td>{{ utilisateur.id }}</td>
+              <td>{{utilisateur.nom }}</td>
+              <!-- <td>
+                <span *ngIf="offre.orientation==1" class="badge badge-success">Points</span>
+                <span *ngIf="offre.orientation==2" class="badge badge-secondary">Autres</span>
+              </td> -->
+  
+              <td>{{ utilisateur.prenom }}</td>
+              <td>{{ utilisateur.telephone }}</td>
+              <td>{{ utilisateur.email }}</td>
+              <td>{{ utilisateur.login }}</td>
+              <!-- <td>{{ utilisateur.commercant.code }}</td> -->
+              <td>{{ utilisateur.role.libele }}</td>
+              <td>
+                <span *ngIf="utilisateur.statut==1" class="badge badge-success">Actif</span>
+                <span *ngIf="utilisateur.statut==2" class="badge badge-secondary">Inactif</span>
+                <span *ngIf="utilisateur.statut==3" class="badge badge-danger">Bloqué</span>
+              </td>
+  
+              <td>
+                <div>
+                  <button (click)="delete(utilisateur.code)" class="btn btn-danger btn-sm">
+                    <span >  <i  class="cui-trash icons "></i>  </span>
+                  </button>
+                  <button  class="btn btn-success btn-sm" (click)=editElement(utilisateur)>
+                    <span >  <i  class="cui-pencil icons "></i>  </span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+  
+          <app-pagination [url]="'putilisateursR'" [numeroPage]="0" [sizePage]="3" (arrayDataEvent)="addPageItem($event)"></app-pagination>
+          <!-- <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  
+  
+  </div>

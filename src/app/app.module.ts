@@ -45,9 +45,11 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import {PaginationComponent} from './fidelite/pagination/pagination.component';
 import {ClientsModule} from './fidelite/clients/clients.module';
+import { AutoRefreshComponent } from './fidelite/auto-refresh/auto-refresh.component';
 
 
 @NgModule({
+  
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -65,6 +67,7 @@ import {ClientsModule} from './fidelite/clients/clients.module';
     FormsModule,
     ReactiveFormsModule,
     AlertModule.forRoot(),
+   
   ],
   declarations: [
     AppComponent,
@@ -73,6 +76,7 @@ import {ClientsModule} from './fidelite/clients/clients.module';
     P500Component,
     LoginComponent,
     RegisterComponent,
+    
   ],
   providers: [{
     provide: LocationStrategy,

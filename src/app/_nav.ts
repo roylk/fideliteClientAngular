@@ -122,6 +122,16 @@ export const navItems: NavData[] = [
       }
     ]
   },
+
+  {
+    divider: true
+  },
+
+  {
+    name: 'Utilisateurs',
+    url: '/fidelite/lister-utilisateurs',
+    icon: 'icon-speedometer',
+  },
   {
     divider: true
   },

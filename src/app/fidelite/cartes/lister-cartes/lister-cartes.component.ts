@@ -15,7 +15,7 @@ export class ListerCartesComponent implements OnInit {
   cartes : any;
   reponse : Reponse;
   arrayData: any=[];
-
+ 
   constructor( private cartesServices : CartesService, private router : Router, private requestsService : RequestsService) { }
 
   editElement(carte){
@@ -46,9 +46,18 @@ export class ListerCartesComponent implements OnInit {
     this.arrayData=arrayData;
   }
 
+  refresh(){
+    this.getCardslist();
+  }
+
   ngOnInit() {
 
     this.getCardslist();
+   
+  }
+
+  ngOnDestroy(){
+    
   }
 
 

@@ -31,6 +31,10 @@ import { VilleComponent } from './ville/ville.component';
 import { CreerVilleComponent } from './ville/creer-ville/creer-ville.component';
 import { EditerVilleComponent } from './ville/editer-ville/editer-ville.component';
 import { UtilitairesModule } from '../utilitaires/utilitaires.module';
+import { AutoRefreshComponent } from '../auto-refresh/auto-refresh.component';
+import { UtilisateursComponent } from '../utilisateurs/utilisateurs.component';
+import { CreerUtilisateurComponent } from '../utilisateurs/creer-utilisateur/creer-utilisateur.component';
+import { EditerUtilisateurComponent } from '../utilisateurs/editer-utilisateur/editer-utilisateur.component';
 
 
 @NgModule({
@@ -51,6 +55,7 @@ import { UtilitairesModule } from '../utilitaires/utilitaires.module';
     MatInputModule,
     AlertModule.forRoot(),
     UtilitairesModule
+   
    
   ]
 })

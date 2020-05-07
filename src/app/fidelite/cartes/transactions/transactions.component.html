@@ -1,6 +1,12 @@
 <div class="animated fadeIn">
 
         <h4 class="title bg-light p-2">  Liste des Transactions </h4>
+
+        <app-auto-refresh 
+          (TimerExpired)="refresh()"  
+          [ElapsTime]="'15'" 
+          [hidden]="'true'">
+        </app-auto-refresh>
       
         <div class="col-12 col-sm-12 col-md-12">
           <div class="card">

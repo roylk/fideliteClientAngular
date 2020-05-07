@@ -215,6 +215,16 @@ export class RequestsService {
       ); //
   }
 
+   /* GET list des utilisateurs*/
+   getAllUsers(): Observable<any>  {
+    return this.http.get<any>(this.apiUrl+'/utilisateursR')
+      .pipe(tap(_ => console.log('service liste offres consommé avec succès')),
+        catchError(this.handleError<any[]>('getAllUsers', []))
+      ); //
+  }
+
+
+
 
 
   //for observable use in real distant service

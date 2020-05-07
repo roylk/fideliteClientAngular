@@ -25,7 +25,7 @@ export class TransactionsComponent implements OnInit {
         this.transactions =arrayData;
     } */
 
-  ngOnInit() {
+  getTransactionList(){
 
     this.requestService.getAllTransactions().subscribe(
       (retour)=>{
@@ -38,6 +38,28 @@ export class TransactionsComponent implements OnInit {
         }
         //this.dataSource=new MatTableDataSource(commercantsRep)
       });
+
+  }
+
+  refresh(){
+    this.getTransactionList();
+  }
+
+  ngOnInit() {
+
+    this.getTransactionList();
+
+    /* this.requestService.getAllTransactions().subscribe(
+      (retour)=>{
+        console.log("Retour lister transactions ******************* ", JSON.stringify(retour));
+        this.reponse=retour;
+        if (this.reponse.status==1){
+          this.transactions=this.reponse.data;}
+        else{
+          console.log("Erreur...........,", this.reponse.message)
+        }
+        //this.dataSource=new MatTableDataSource(commercantsRep)
+      }); */
   }
   
 
